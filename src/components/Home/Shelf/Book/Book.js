@@ -18,11 +18,14 @@ const Book = ({ book, handleUpdateShelf }) => {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks.thumbnail})`,
+              backgroundImage: `url(${book.imageLinks.smallThumbnail})`,
             }}
           ></div>
           <div className="book-shelf-changer">
-            <BookShelfSelector handleUpdateBookShelf={handleUpdateBookShelf} book={book} />
+            <BookShelfSelector
+              handleUpdateBookShelf={handleUpdateBookShelf}
+              book={book}
+            />
           </div>
         </div>
         <div className="book-title">{book.title}</div>
