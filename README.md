@@ -94,5 +94,7 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## ScrrenShots!
-![](public/images/HomPage.png)
+![HomePageScreenShot](public/images/HomPage.png)
+
+![SearchPageScreenShot](public/images/SearchPage.png)
 
