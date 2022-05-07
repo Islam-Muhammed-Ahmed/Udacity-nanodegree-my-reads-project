@@ -94,5 +94,5 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## ScrrenShots!
-[HomePage](https://user-images.githubusercontent.com/19860108/167258667-85da6c09-3b71-4dbe-87e6-cab007b6f839.png)
+! [HomePage](https://user-images.githubusercontent.com/19860108/167258667-85da6c09-3b71-4dbe-87e6-cab007b6f839.png)
 
