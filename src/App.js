@@ -5,6 +5,7 @@ import * as BooksAPI from "./utils/BooksAPI";
 import Home from "./components/Home/Home";
 import Search from "./components/Search/Search";
 import Error from "./common/Error/Error";
+import { useDebounce } from "use-debounce";
 
 function App() {
   /* TODO: importing all functions from the BooksAPI as BooksAPI
@@ -13,6 +14,7 @@ function App() {
   const [booksData, setBooksData] = useState([]);
   // TODO: variable to handle Search state
   const [searchQuery, setSearchQuery] = useState("");
+  const [valueSearch] = useDebounce(searchQuery, 500);
   const [searchBookQuery, setSearchBookQuery] = useState([]);
   const [loadSearchData, setLoadSearchData] = useState(false);
   //TODO: creating variables to add property shelf to the new selected book to the shelf
@@ -32,7 +34,7 @@ function App() {
   };
   // TODO: building func to keep track for search input val
   const handleBookSearchQuery = async () => {
-    await BooksAPI.search(searchQuery).then((data) => {
+    await BooksAPI.search(valueSearch).then((data) => {
       if (data && !data.error) {
         setSearchBookQuery(data);
         setLoadSearchData(true);
@@ -45,7 +47,7 @@ function App() {
   const handleSearchQuery = async (e) => {
     let inputValue = e.target.value;
     setSearchQuery(inputValue);
-    await handleBookSearchQuery(searchQuery);
+    await handleBookSearchQuery(valueSearch);
   };
   /* TODO: create new map of books to get the new data updated
   with the new shelf you choose 1. map 2. create constant to check 
@@ -65,13 +67,13 @@ function App() {
   });
 
   // TODO: testing the data fetched successfully or n't and search Input
-  console.log(booksData, searchQuery, searchBookQuery, mergedBooks);
+  // console.log(booksData, valueSearch, searchBookQuery, mergedBooks);
   // TODO: fire functions in the useEffect to render in the first time app run and this is the lifecycle
   useEffect(() => {
     getAllBooksData();
     handleBookSearchQuery();
     setMergedBooks(combiningBooksShelf);
-  }, [searchQuery]);
+  }, [valueSearch]);
 
   return (
     <div className="app">
