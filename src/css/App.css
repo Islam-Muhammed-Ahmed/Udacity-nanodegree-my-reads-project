@@ -240,3 +240,8 @@ body,
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 }
+
+.no_data {
+  font: 1.8rem bold;
+  text-transform: capitalize;
+}

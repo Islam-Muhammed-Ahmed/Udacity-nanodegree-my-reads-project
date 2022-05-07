@@ -1,13 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import NavigateToHomeBtn from "./navigateToHomeBtn/NavigateToHomeBtn";
+import SearchShelf from "./searchShelf/SearchShelf";
 
-const Search = ({ handleSearchQuery, searchQuery, searchBookQuery }) => {
+const Search = ({
+  handleSearchQuery,
+  searchQuery,
+  searchBookQuery,
+  handleUpdateShelf,
+  loadSearchData,
+  mergedBooks,
+}) => {
+  const noData = <div className="no_data">there's no data to show </div>;
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <NavLink to="/" className="close-search">
-          Close
-        </NavLink>
+        <NavigateToHomeBtn />
         <div className="search-books-input-wrapper">
           <input
             type="text"
@@ -17,13 +24,15 @@ const Search = ({ handleSearchQuery, searchQuery, searchBookQuery }) => {
           />
         </div>
       </div>
-      <div className="search-books-results">
-        <ol className="books-grid">
-          {searchBookQuery.map((book) => (
-            <span>{book.title}</span>
-          ))}
-        </ol>
-      </div>
+      {/* Search Shelf */}
+
+      <SearchShelf
+        mergedBooks={mergedBooks}
+        loadSearchData={loadSearchData}
+        noData={noData}
+        searchBookQuery={searchBookQuery}
+        handleUpdateShelf={handleUpdateShelf}
+      />
     </div>
   );
 };

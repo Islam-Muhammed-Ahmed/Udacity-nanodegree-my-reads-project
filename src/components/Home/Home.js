@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Shelf from "./Shelf/Shelf";
 import { PropTypes } from "prop-types";
+import NavigateToSearchBtn from "./navigateToSearcBtn/NavigateToSearchBtn";
 
 const Home = ({ booksData, handleUpdateShelf }) => {
   return (
@@ -32,9 +32,7 @@ const Home = ({ booksData, handleUpdateShelf }) => {
           />
         </div>
       </div>
-      <div className="open-search">
-        <NavLink to="/search">Add a book</NavLink>
-      </div>
+      <NavigateToSearchBtn />
     </div>
   );
 };

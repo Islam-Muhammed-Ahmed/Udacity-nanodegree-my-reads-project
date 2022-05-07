@@ -1,5 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import BookShelfSelector from "./bookShelfSelectoe/BookShelfSelector";
 
 const Book = ({ book, handleUpdateShelf }) => {
   //  TODO: building fuc to handle the change of the value of the book shelf
@@ -21,15 +22,7 @@ const Book = ({ book, handleUpdateShelf }) => {
             }}
           ></div>
           <div className="book-shelf-changer">
-            <select onChange={handleUpdateBookShelf} value={book.shelf}>
-              <option value="none" disabled>
-                Move to...
-              </option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-            </select>
+            <BookShelfSelector handleUpdateBookShelf={handleUpdateBookShelf} book={book} />
           </div>
         </div>
         <div className="book-title">{book.title}</div>
