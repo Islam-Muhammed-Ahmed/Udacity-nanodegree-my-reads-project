@@ -1,6 +1,7 @@
 import React from "react";
 import NavigateToHomeBtn from "./navigateToHomeBtn/NavigateToHomeBtn";
 import SearchShelf from "./searchShelf/SearchShelf";
+import { PropTypes } from "prop-types";
 
 const Search = ({
   handleSearchQuery,
@@ -32,4 +33,11 @@ const Search = ({
   );
 };
 
+Search.propTypes = {
+  handleSearchQuery: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string.isRequired,
+  handleUpdateShelf: PropTypes.func.isRequired,
+  loadSearchData: PropTypes.bool.isRequired,
+  mergedBooks: PropTypes.array.isRequired,
+};
 export default Search;

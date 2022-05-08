@@ -1,5 +1,6 @@
 import React from "react";
 import Book from "../../Home/Shelf/Book/Book";
+import { PropTypes } from "prop-types";
 
 const SearchShelf = ({ handleUpdateShelf, loadSearchData, mergedBooks }) => {
   const noData = <div className="no_data">there's no data to show </div>;
@@ -22,4 +23,9 @@ const SearchShelf = ({ handleUpdateShelf, loadSearchData, mergedBooks }) => {
   );
 };
 
+SearchShelf.propTypes = {
+  handleUpdateShelf: PropTypes.func.isRequired,
+  loadSearchData: PropTypes.bool.isRequired,
+  mergedBooks: PropTypes.array.isRequired,
+};
 export default SearchShelf;
