@@ -5,12 +5,10 @@ import SearchShelf from "./searchShelf/SearchShelf";
 const Search = ({
   handleSearchQuery,
   searchQuery,
-  searchBookQuery,
   handleUpdateShelf,
   loadSearchData,
   mergedBooks,
 }) => {
-  const noData = <div className="no_data">there's no data to show </div>;
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -25,12 +23,9 @@ const Search = ({
         </div>
       </div>
       {/* Search Shelf */}
-
       <SearchShelf
         mergedBooks={mergedBooks}
         loadSearchData={loadSearchData}
-        noData={noData}
-        searchBookQuery={searchBookQuery}
         handleUpdateShelf={handleUpdateShelf}
       />
     </div>

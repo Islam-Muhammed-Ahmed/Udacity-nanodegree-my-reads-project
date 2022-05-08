@@ -14,7 +14,7 @@ function App() {
   const [booksData, setBooksData] = useState([]);
   // TODO: variable to handle Search state
   const [searchQuery, setSearchQuery] = useState("");
-  const [valueSearch] = useDebounce(searchQuery, 500);
+  const [valueSearch] = useDebounce(searchQuery, 1000);
   const [searchBookQuery, setSearchBookQuery] = useState([]);
   const [loadSearchData, setLoadSearchData] = useState(false);
   //TODO: creating variables to add property shelf to the new selected book to the shelf
@@ -68,6 +68,7 @@ function App() {
 
   // TODO: testing the data fetched successfully or n't and search Input
   // console.log(booksData, valueSearch, searchBookQuery, mergedBooks);
+
   // TODO: fire functions in the useEffect to render in the first time app run and this is the lifecycle
   useEffect(() => {
     getAllBooksData();
@@ -77,29 +78,35 @@ function App() {
 
   return (
     <div className="app">
-      <Routes>
-        <Route
-          path="/search"
-          element={
-            <Search
-              mergedBooks={mergedBooks}
-              loadSearchData={loadSearchData}
-              searchBookQuery={searchBookQuery}
-              searchQuery={searchQuery}
-              handleSearchQuery={handleSearchQuery}
-              handleUpdateShelf={handleUpdateShelf}
-            />
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <Home booksData={booksData} handleUpdateShelf={handleUpdateShelf} />
-          }
-        />
-        {/* error component this will redirect any one who writes wrong url to an error page  */}
-        <Route path="*" element={<Error />} />
-      </Routes>
+      {booksData ? (
+        <Routes>
+          <Route
+            path="/search"
+            element={
+              <Search
+                mergedBooks={mergedBooks}
+                loadSearchData={loadSearchData}
+                searchQuery={searchQuery}
+                handleSearchQuery={handleSearchQuery}
+                handleUpdateShelf={handleUpdateShelf}
+              />
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <Home
+                booksData={booksData}
+                handleUpdateShelf={handleUpdateShelf}
+              />
+            }
+          />
+          {/* error component this will redirect any one who writes wrong url to an error page  */}
+          <Route path="*" element={<Error />} />
+        </Routes>
+      ) : (
+        <div>loading</div>
+      )}
     </div>
   );
 }
