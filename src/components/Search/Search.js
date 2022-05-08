@@ -37,6 +37,7 @@ const Search = ({
         </div>
         {/* Search Shelf */}
         <SearchShelf
+          searchQuery={searchQuery}
           mergedBooks={mergedBooks}
           loadSearchData={loadSearchData}
           handleUpdateShelf={handleUpdateShelf}

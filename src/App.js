@@ -14,7 +14,7 @@ function App() {
   const [booksData, setBooksData] = useState([]);
   // TODO: variable to handle Search state
   const [searchQuery, setSearchQuery] = useState("");
-  const [valueSearch] = useDebounce(searchQuery, 1000);
+  const [valueSearch] = useDebounce(searchQuery, 500);
   const [searchBookQuery, setSearchBookQuery] = useState([]);
   const [loadSearchData, setLoadSearchData] = useState(false);
   //TODO: creating variables to add property shelf to the new selected book to the shelf
@@ -30,7 +30,7 @@ function App() {
   // TODO: importing update func  from bookAPI and call getAllBooksData to update the state
   const handleUpdateShelf = async (book, shelf) => {
     await BooksAPI.update(book, shelf);
-    await getAllBooksData();
+    getAllBooksData();
   };
   // TODO: building func to keep track for search input val
   const handleBookSearchQuery = async () => {
@@ -44,10 +44,10 @@ function App() {
       }
     });
   };
-  const handleSearchQuery = async (e) => {
+  const handleSearchQuery = (e) => {
     let inputValue = e.target.value;
     setSearchQuery(inputValue);
-    await handleBookSearchQuery(valueSearch);
+    handleBookSearchQuery(valueSearch);
   };
   /* TODO: create new map of books to get the new data updated
   with the new shelf you choose 1. map 2. create constant to check 
@@ -78,35 +78,28 @@ function App() {
 
   return (
     <div className="app">
-      {booksData ? (
-        <Routes>
-          <Route
-            path="/search"
-            element={
-              <Search
-                mergedBooks={mergedBooks}
-                loadSearchData={loadSearchData}
-                searchQuery={searchQuery}
-                handleSearchQuery={handleSearchQuery}
-                handleUpdateShelf={handleUpdateShelf}
-              />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <Home
-                booksData={booksData}
-                handleUpdateShelf={handleUpdateShelf}
-              />
-            }
-          />
-          {/* error component this will redirect any one who writes wrong url to an error page  */}
-          <Route path="*" element={<Error />} />
-        </Routes>
-      ) : (
-        <div>loading</div>
-      )}
+      <Routes>
+        <Route
+          path="/search"
+          element={
+            <Search
+              mergedBooks={mergedBooks}
+              loadSearchData={loadSearchData}
+              searchQuery={searchQuery}
+              handleSearchQuery={handleSearchQuery}
+              handleUpdateShelf={handleUpdateShelf}
+            />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <Home booksData={booksData} handleUpdateShelf={handleUpdateShelf} />
+          }
+        />
+        {/* error component this will redirect any one who writes wrong url to an error page  */}
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }

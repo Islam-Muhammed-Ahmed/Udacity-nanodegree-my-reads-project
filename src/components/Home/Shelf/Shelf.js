@@ -2,7 +2,7 @@ import React from "react";
 import Book from "./Book/Book";
 import { PropTypes } from "prop-types";
 
-const Shelf = ({ TitleName, booksData, shelf, handleUpdateShelf }) => {
+const Shelf = ({ titleName, booksData, shelf, handleUpdateShelf }) => {
   /* TODO: 
     before passing data to the book component we have to make filtration to the data,
     data must be passed depends om it's state as currently reading, want to read or read
@@ -12,7 +12,7 @@ const Shelf = ({ TitleName, booksData, shelf, handleUpdateShelf }) => {
 
   return (
     <div className="bookshelf">
-      <h2 className="bookshelf-title">{TitleName}</h2>
+      <h2 className="bookshelf-title">{titleName}</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
           {bookShelf.map((book) => (
@@ -27,7 +27,7 @@ const Shelf = ({ TitleName, booksData, shelf, handleUpdateShelf }) => {
 };
 
 Shelf.propTypes = {
-  TitleName: PropTypes.string.isRequired,
+  titleName: PropTypes.string.isRequired,
   booksData: PropTypes.array.isRequired,
   handleUpdateShelf: PropTypes.func.isRequired,
   shelf: PropTypes.string.isRequired,

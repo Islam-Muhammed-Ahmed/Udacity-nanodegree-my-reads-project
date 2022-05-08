@@ -24,19 +24,19 @@ const Home = ({ booksData, handleUpdateShelf }) => {
             <Shelf
               handleUpdateShelf={handleUpdateShelf}
               booksData={booksData}
-              TitleName="Currently Reading"
+              titleName="Currently Reading"
               shelf="currentlyReading"
             />
             <Shelf
               handleUpdateShelf={handleUpdateShelf}
               booksData={booksData}
-              TitleName="Want To Read"
+              titleName="Want To Read"
               shelf="wantToRead"
             />
             <Shelf
               handleUpdateShelf={handleUpdateShelf}
               booksData={booksData}
-              TitleName="Read"
+              titleName="Read"
               shelf="read"
             />
           </div>
