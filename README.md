@@ -1,6 +1,6 @@
 # MyReads Project
 
-#About
+## About :
 This is a single-page app (navigation happens without the need to refresh pages),
 and it represents a virtual bookcase to store your books and track what you're reading.
 MyReads lets you manage your digital bookshelf. 
@@ -11,7 +11,7 @@ iii. Read
 
 Additionally you can search and add books to any shelf.
 
-#Live Demo:
+## Live Demo:
 https://udacity-nanodegree-my-reads-project.vercel.app/
 
 
