@@ -15,7 +15,7 @@ Additionally you can search and add books to any shelf.
 https://udacity-nanodegree-my-reads-project.vercel.app/
 
 ## start locally:
-- clone it or download repo then in terminal write thess command
+- clone it or download repo then in terminal write these command
 - `npm install`. 
 - `npm start`.
 <hr />
