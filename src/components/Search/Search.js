@@ -8,7 +8,6 @@ const Search = ({
   handleSearchQuery,
   searchQuery,
   handleUpdateShelf,
-  loadSearchData,
   mergedBooks,
 }) => {
   return (
@@ -39,7 +38,6 @@ const Search = ({
         <SearchShelf
           searchQuery={searchQuery}
           mergedBooks={mergedBooks}
-          loadSearchData={loadSearchData}
           handleUpdateShelf={handleUpdateShelf}
         />
       </div>
@@ -51,7 +49,6 @@ Search.propTypes = {
   handleSearchQuery: PropTypes.func.isRequired,
   searchQuery: PropTypes.string.isRequired,
   handleUpdateShelf: PropTypes.func.isRequired,
-  loadSearchData: PropTypes.bool.isRequired,
   mergedBooks: PropTypes.array.isRequired,
 };
 export default Search;

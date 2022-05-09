@@ -3,12 +3,6 @@ import { PropTypes } from "prop-types";
 import BookShelfSelector from "./bookShelfSelectoe/BookShelfSelector";
 
 const Book = ({ book, handleUpdateShelf }) => {
-  //  TODO: building fuc to handle the change of the value of the book shelf
-  const handleUpdateBookShelf = (e) => {
-    const value = e.target.value;
-    handleUpdateShelf(book, value);
-  };
-
   return (
     <li>
       <div className="book">
@@ -24,7 +18,7 @@ const Book = ({ book, handleUpdateShelf }) => {
           ></div>
           <div className="book-shelf-changer">
             <BookShelfSelector
-              handleUpdateBookShelf={handleUpdateBookShelf}
+              handleUpdateShelf={handleUpdateShelf}
               book={book}
             />
           </div>

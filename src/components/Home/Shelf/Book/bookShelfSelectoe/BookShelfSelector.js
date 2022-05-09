@@ -1,7 +1,12 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 
-const BookShelfSelector = ({ handleUpdateBookShelf, book }) => {
+const BookShelfSelector = ({ book, handleUpdateShelf }) => {
+  //  TODO: building fuc to handle the change of the value of the book shelf
+  const handleUpdateBookShelf = (e) => {
+    const value = e.target.value;
+    handleUpdateShelf(book, value);
+  };
   return (
     <select
       onChange={handleUpdateBookShelf}
@@ -20,6 +25,6 @@ const BookShelfSelector = ({ handleUpdateBookShelf, book }) => {
 
 BookShelfSelector.propTypes = {
   book: PropTypes.object.isRequired,
-  handleUpdateBookShelf: PropTypes.func.isRequired,
+  handleUpdateShelf: PropTypes.func.isRequired,
 };
 export default BookShelfSelector;
