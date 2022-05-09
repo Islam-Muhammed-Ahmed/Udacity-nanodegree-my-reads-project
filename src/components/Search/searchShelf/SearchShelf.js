@@ -26,7 +26,6 @@ const SearchShelf = ({ handleUpdateShelf, searchQuery, mergedBooks }) => {
   return (
     <div className="search-books-results">
       <ol className="books-grid">
-        {console.log(deferredMergedBooks)}
         {deferredMergedBooks && searchQuery
           ? deferredMergedBooks.map((book) => {
               return (
