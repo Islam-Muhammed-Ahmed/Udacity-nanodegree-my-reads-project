@@ -44,7 +44,7 @@ const SearchShelf = ({ handleUpdateShelf, searchQuery, mergedBooks }) => {
 
 SearchShelf.propTypes = {
   handleUpdateShelf: PropTypes.func.isRequired,
-  loadSearchData: PropTypes.bool.isRequired,
   mergedBooks: PropTypes.array.isRequired,
+  searchQuery: PropTypes.string,
 };
 export default SearchShelf;
